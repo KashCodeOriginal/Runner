@@ -1,13 +1,12 @@
-using System;
 using UnityEngine;
 
 public class ObjectTriggerEnter : MonoBehaviour
 {
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.tag == "Floor")
+        if (collider.TryGetComponent(out Enemy enemy))
         {
-            collider.transform.position = new Vector3(0, 0, 42);
+            
         }
     }
 }
