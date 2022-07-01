@@ -11,7 +11,7 @@ public class RandomPositionMover : MonoBehaviour
 
     public Vector3 RandomPositionGenerator()
     {
-        Vector3 _position = new Vector3((random.Next(-155,155)/100),0.5f,45);
+        Vector3 _position = new Vector3(random.Next(-155,155)/100,0.5f,45);
         return _position;
     }
 }
