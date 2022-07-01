@@ -31,6 +31,7 @@ Material:
         m_Texture: {fileID: 2800000, guid: ed512d00c2b0c0748bcb5cf3fce1a4c8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _DepthDensity: 0.417
     - _DistanceDensity: 0.02
@@ -50,22 +51,23 @@ Material:
     - _SunSpecularExponent: 1
     - _VertexNormalDelta: 0.01
     - _Wave1Amplitude: 0.1
-    - _Wave1Direction: 0.382
+    - _Wave1Direction: 0
     - _Wave1Speed: 0.25
-    - _Wave1Wavelength: 2
-    - _Wave2Amplitude: 0.15
-    - _Wave2Direction: 0.618
-    - _Wave2Speed: 1
-    - _Wave2Wavelength: 7.5
+    - _Wave1Wavelength: 0.98
+    - _Wave2Amplitude: 0.37
+    - _Wave2Direction: 0.51
+    - _Wave2Speed: 0.71
+    - _Wave2Wavelength: 7.3
     - _WaveNormalDelta: 0.01
     - _WaveNormalScale: 25
     - _WaveNormalSpeed: 0.05
     m_Colors:
-    - _DeepColor: {r: 0.20392156, g: 1, b: 0.41706988, a: 1}
+    - _DeepColor: {r: 0.10946951, g: 0.7075472, b: 0.70165485, a: 1}
     - _EdgeFoamColor: {r: 1, g: 1, b: 1, a: 1}
     - _FarColor: {r: 0.08343716, g: 0.29864755, b: 0.7075472, a: 1}
     - _SSSColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadowColor: {r: 0.03551086, g: 0.30351532, b: 0.3584906, a: 1}
+    - _ShadowColor: {r: 0, g: 0.8136214, b: 0.9811321, a: 1}
     - _ShallowColor: {r: 1.1505303, g: 1.299991, b: 0.8891448, a: 1}
     - _SparkleColor: {r: 0.740566, g: 1, b: 0.9357789, a: 1}
     - _SunSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []
