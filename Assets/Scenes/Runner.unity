@@ -484,7 +484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _decreaseStep: 0.03
   _minTimeBetweenEnemiesValue: 1
-  _minInactiveTimeValue: 3.5
+  _minInactiveTimeValue: 5
 --- !u!4 &404885624
 Transform:
   m_ObjectHideFlags: 0
@@ -993,7 +993,7 @@ MonoBehaviour:
   _enemiesContainer: {fileID: 665123352}
   _amountOfEnemies: 30
   _enemyPrefab: {fileID: 749889366636181371, guid: 3f75811d837f42a489b425bc6eb05d91, type: 3}
-  _timeBetweenSpawn: 6
+  _timeBetweenSpawn: 4.5
   gameValuesChanger: {fileID: 404885623}
 --- !u!4 &1542196126
 Transform:
@@ -1131,15 +1131,23 @@ PrefabInstance:
       objectReference: {fileID: 1542196127}
     - target: {fileID: 2045870780, guid: abb41fd5cb2d92741a560a850ad0f588, type: 3}
       propertyPath: _allowedTimeWithoutTouching
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2045870781, guid: abb41fd5cb2d92741a560a850ad0f588, type: 3}
       propertyPath: _speed
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2045870782, guid: abb41fd5cb2d92741a560a850ad0f588, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2045870782, guid: abb41fd5cb2d92741a560a850ad0f588, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 521909252477789997, guid: abb41fd5cb2d92741a560a850ad0f588, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 521909252477789997, guid: abb41fd5cb2d92741a560a850ad0f588, type: 3}
       propertyPath: m_Enabled
@@ -1159,11 +1167,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5477898818973789549, guid: abb41fd5cb2d92741a560a850ad0f588, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.26
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5477898818973789549, guid: abb41fd5cb2d92741a560a850ad0f588, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.54
+      value: -8.5
       objectReference: {fileID: 0}
     - target: {fileID: 5477898818973789549, guid: abb41fd5cb2d92741a560a850ad0f588, type: 3}
       propertyPath: m_LocalRotation.w

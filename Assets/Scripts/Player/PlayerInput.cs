@@ -34,8 +34,6 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             _startPos = Input.mousePosition;
-            _passedTimeWithoutTouching = 0;
-            _randomPositionMover.IsPlayerInactive = false;
         }
         else if (Input.GetMouseButton(0))
         {
