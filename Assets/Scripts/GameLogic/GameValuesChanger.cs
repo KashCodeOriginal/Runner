@@ -4,22 +4,22 @@ public class GameValuesChanger : MonoBehaviour
 {
     [SerializeField] private float _decreaseStep;
     
-    [SerializeField] private float minValue;
-    [SerializeField] private float maxValue;
-    
+    [SerializeField] private float _minTimeBetweenEnemiesValue;
+    [SerializeField] private float _minInactiveTimeValue;
+
     private float _totalPassedTime = 0;
     private void Update()
     {
         _totalPassedTime += Time.deltaTime;
     }
-    public void TryDecreaseValue(ref float value)
+    public void TryDecreaseEnemiesValue(ref float value)
     {
-        if (value >= minValue)
+        if (value >= _minTimeBetweenEnemiesValue)
             value -= (_totalPassedTime * _decreaseStep) / 10000;
     }
-    public void TryIncreaseValue(ref float value)
+    public void TryDecreaseInactiveValue(ref float value)
     {
-        if (value <= maxValue)
-            value += (_totalPassedTime * _decreaseStep) / 10000;
+        if (value >= _minInactiveTimeValue)
+            value -= (_totalPassedTime * _decreaseStep) / 10000;
     }
 }

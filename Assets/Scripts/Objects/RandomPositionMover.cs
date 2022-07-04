@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RandomPositionMover : MonoBehaviour
 {
-    public bool IsPlayerInactive { get; set; }
+    public bool IsPlayerInactive;
     
     [Header("Min and max points of road")]
     [SerializeField] private int _minX;

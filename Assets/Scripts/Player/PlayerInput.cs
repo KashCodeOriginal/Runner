@@ -28,6 +28,9 @@ public class PlayerInput : MonoBehaviour
     private void Update()
     {
         _passedTimeWithoutTouching += Time.deltaTime;
+        
+        gameValuesChanger.TryDecreaseInactiveValue(ref _allowedTimeWithoutTouching);
+        
         if (Input.GetMouseButtonDown(0))
         {
             _startPos = Input.mousePosition;
@@ -49,6 +52,7 @@ public class PlayerInput : MonoBehaviour
             if (_passedTimeWithoutTouching >= _allowedTimeWithoutTouching)
             {
                 _randomPositionMover.IsPlayerInactive = true;
+                _passedTimeWithoutTouching = 0;
             }
         }
         _playerMover.TryMove(targetPosx);

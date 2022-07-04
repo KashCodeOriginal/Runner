@@ -30,7 +30,7 @@ public class Spawner : ObjectsPool
                 SetEnemy(enemy);
             }
         }
-        gameValuesChanger.TryDecreaseValue(ref _timeBetweenSpawn);
+        gameValuesChanger.TryDecreaseEnemiesValue(ref _timeBetweenSpawn);
     }
 
     private void SetEnemy(GameObject enemy)
