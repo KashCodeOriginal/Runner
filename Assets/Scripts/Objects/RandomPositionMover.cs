@@ -7,10 +7,10 @@ public class RandomPositionMover : MonoBehaviour
     [SerializeField] private int _maxX;
     
     [Header("Height of object on road")]
-    [SerializeField] private int _height;
+    [SerializeField] private float _height;
 
     [Header("Start position by Z-axis")]
-    [SerializeField] private int _zPos;
+    [SerializeField] private float _zPos;
 
 
     System.Random random = new System.Random();

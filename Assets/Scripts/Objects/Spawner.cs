@@ -6,14 +6,15 @@ public class Spawner : ObjectsPool
 
     [SerializeField] private float _timeBetweenSpawn;
 
-    [SerializeField] private RandomPositionMover _randomPositionMover;
-
     [SerializeField] private GameValuesChange _gameValuesChange;
 
     private float _passedTimeBetweenEnemies = 0;
+    
+    private RandomPositionMover _randomPositionMover;
 
     private void Start()
     {
+        _randomPositionMover = gameObject.GetComponent<RandomPositionMover>();
         Initialize(_enemyPrefab);
     }
 
