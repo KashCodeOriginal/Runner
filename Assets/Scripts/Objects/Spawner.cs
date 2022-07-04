@@ -36,8 +36,7 @@ public class Spawner : ObjectsPool
     private void SetEnemy(GameObject enemy)
     {
         enemy.SetActive(true);
-        _randomPositionMover.MoveToGeneratedPosition(enemy);
+        _randomPositionMover.MoveToPosition(enemy);
     }
-    
 }
  
