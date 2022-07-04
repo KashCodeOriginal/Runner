@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RandomPositionMover : MonoBehaviour
 {
-    public bool IsPlayerInactive;
+    public bool IsPlayerInactive { get; set; }
     
     [Header("Min and max points of road")]
     [SerializeField] private int _minX;
@@ -32,9 +32,7 @@ public class RandomPositionMover : MonoBehaviour
     }
     private Vector3 RandomPositionGenerator()
     {
-        Vector3 _position = new Vector3(random.Next(_minX,_maxX)/100f,_height,_zPos); // 100f - devide to do float coordinates
+        Vector3 _position = new Vector3(random.Next(_minX,_maxX)/100f,_height,_zPos); // 100f - divide to do float coordinates
         return _position;
     }
-
-    
 }
