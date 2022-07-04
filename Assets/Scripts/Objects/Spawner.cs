@@ -6,7 +6,7 @@ public class Spawner : ObjectsPool
 
     [SerializeField] private float _timeBetweenSpawn;
 
-    [SerializeField] private GameValuesChange _gameValuesChange;
+    [SerializeField] private GameValuesChanger gameValuesChanger;
 
     private float _passedTimeBetweenEnemies = 0;
     
@@ -30,7 +30,7 @@ public class Spawner : ObjectsPool
                 SetEnemy(enemy);
             }
         }
-        _gameValuesChange.TryDecreaseValue(ref _timeBetweenSpawn);
+        gameValuesChanger.TryDecreaseValue(ref _timeBetweenSpawn);
     }
 
     private void SetEnemy(GameObject enemy)

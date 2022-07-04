@@ -9,6 +9,8 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private float _allowedTimeWithoutTouching;
 
     [SerializeField] private RandomPositionMover _randomPositionMover;
+
+    [SerializeField] private GameValuesChanger gameValuesChanger;
     
     private PlayerMover _playerMover;
     

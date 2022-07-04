@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GameValuesChange : MonoBehaviour
+public class GameValuesChanger : MonoBehaviour
 {
     [SerializeField] private float _decreaseStep;
     
