@@ -20,13 +20,14 @@ public class RandomPositionMover : MonoBehaviour
 
     [SerializeField] private PlayerInput _playerInput;
 
-    public bool IsPlayerInactiveValue;
+    private bool IsPlayerInactiveValue;
     
     public void MoveToPosition(GameObject gameObject)
     {
         if (IsPlayerInactiveValue == true)
         {
             gameObject.transform.position = new Vector3(_playerTransform.position.x,_height,_zPos);
+            IsPlayerInactiveValue = false;
         }
         else
         {

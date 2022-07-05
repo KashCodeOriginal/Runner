@@ -5,11 +5,15 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private int _health;
 
-    public event UnityAction<int> PlayerHealthChanged;
+    private Animator _animator;
 
+    public event UnityAction<int> PlayerHealthChanged;
+    public event UnityAction Died;
+    
     private void Start()
     {
         PlayerHealthChanged?.Invoke(_health);
+        _animator = gameObject.GetComponent<Animator>();
     }
     
     public void ApplyDamage(int damage)
@@ -26,6 +30,7 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        _animator.SetBool("PlayerDied", true);
+        Died?.Invoke();
     }
 }

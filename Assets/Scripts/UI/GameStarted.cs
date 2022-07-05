@@ -17,8 +17,8 @@ public class GameStarted : MonoBehaviour
  
     private void PlayerStartAnimation()
     {
-        _playerAnimation.SetBool("GameStarted",true);
         _playerTransform.rotation = new Quaternion(0, 0, 0,0);
+        _playerAnimation.SetBool("GameStarted",true);
         _playerTransform.position = new Vector3(0, 0.25f, -8.5f);
     }
 

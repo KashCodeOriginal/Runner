@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,6 +15,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private GameValuesChanger gameValuesChanger;
     
     private PlayerMover _playerMover;
+    private Player _player;
     
     private Vector2 _startPos;
     private float targetPosx;
