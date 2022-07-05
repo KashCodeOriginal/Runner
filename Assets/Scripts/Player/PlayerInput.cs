@@ -1,14 +1,15 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(PlayerMover))]
 public class PlayerInput : MonoBehaviour
 {
+    public event UnityAction<bool> IsPlayerInactive;
+    
     [SerializeField] private float _xMin;
     [SerializeField] private float _xMax;
 
     [SerializeField] private float _allowedTimeWithoutTouching;
-
-    [SerializeField] private RandomPositionMover _randomPositionMover;
 
     [SerializeField] private GameValuesChanger gameValuesChanger;
     
@@ -43,13 +44,13 @@ public class PlayerInput : MonoBehaviour
 
             _passedTimeWithoutTouching = 0;
             
-            _randomPositionMover.IsPlayerInactive = false;
+            IsPlayerInactive?.Invoke(false);
         }
         else
         {
             if (_passedTimeWithoutTouching >= _allowedTimeWithoutTouching)
             {
-                _randomPositionMover.IsPlayerInactive = true;
+                IsPlayerInactive?.Invoke(true);
                 _passedTimeWithoutTouching = 0;
             }
         }

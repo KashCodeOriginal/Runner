@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Spawner : ObjectsPool
+public class EnemySpawner : ObjectsPool
 {
     [SerializeField] private GameObject _enemyPrefab;
 
