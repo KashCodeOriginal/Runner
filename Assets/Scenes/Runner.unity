@@ -854,6 +854,7 @@ GameObject:
   - component: {fileID: 404885624}
   - component: {fileID: 404885623}
   - component: {fileID: 404885625}
+  - component: {fileID: 404885626}
   m_Layer: 0
   m_Name: GameSettings
   m_TagString: GameSettings
@@ -906,6 +907,24 @@ MonoBehaviour:
   _playerTransform: {fileID: 1887670188}
   _playerInput: {fileID: 5477898819117310077}
   _spawner: {fileID: 1542196125}
+--- !u!114 &404885626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404885622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 611a4cabb9a339342a9d11576142a8db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 5477898819117310074}
+  _playerInput: {fileID: 5477898819117310077}
+  _gameOverPanel: {fileID: 616385020}
+  _enemySpawner: {fileID: 1542196125}
+  _enemiesList: {fileID: 665123352}
+  _restartButton: {fileID: 21479499}
 --- !u!1 &419082090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,7 +1494,6 @@ MonoBehaviour:
   _zPos: 45
   _playerTransform: {fileID: 1887670188}
   _playerInput: {fileID: 5477898819117310077}
-  IsPlayerInactiveValue: 0
 --- !u!1 &1794517040
 GameObject:
   m_ObjectHideFlags: 0

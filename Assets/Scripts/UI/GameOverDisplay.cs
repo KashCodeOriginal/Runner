@@ -19,6 +19,16 @@ public class GameOverDisplay : MonoBehaviour
     {
         _gameOverPanel.SetActive(false);
     }
+    private void ControlAllEnemies(bool enableEnemyMoving)
+    {
+        foreach (Transform enemy in _enemiesList)
+        {
+            if (enemy.gameObject.activeSelf == true)
+            {
+                enemy.gameObject.GetComponent<EnemyMover>().enabled = enableEnemyMoving;
+            }
+        }
+    }
     private void OnEnable()
     {
         _player.Died += OnPlayerDied;
@@ -37,13 +47,7 @@ public class GameOverDisplay : MonoBehaviour
         _enemySpawner.enabled = false;
         _gameOverPanel.SetActive(true);
 
-        foreach (Transform enemy in _enemiesList)
-        {
-            if (enemy.gameObject.activeSelf == true)
-            {
-                enemy.gameObject.GetComponent<EnemyMover>().enabled = false;
-            }
-        }
+        ControlAllEnemies(false);
     }
 
     private void RestartGame()
