@@ -9,13 +9,15 @@ public class Player : MonoBehaviour
     private Animator _animator;
 
     public event UnityAction<int> PlayerHealthChanged;
-    public event UnityAction PlayerCoinsChanged;
+    public event UnityAction<int> PlayerCoinsChanged;
     
     public event UnityAction Died;
     
     private void Start()
     {
+        LoadCoins();
         PlayerHealthChanged?.Invoke(_health);
+        PlayerCoinsChanged?.Invoke(_coins);
         _animator = gameObject.GetComponent<Animator>();
     }
     
@@ -35,12 +37,23 @@ public class Player : MonoBehaviour
     {
         _coins += ammount;
         
-        PlayerCoinsChanged?.Invoke();
+        PlayerCoinsChanged?.Invoke(_coins);
+
+        SaveCoins();
     }
 
     private void Die()
     {
         _animator.SetBool("PlayerDied", true);
         Died?.Invoke();
+    }
+    
+    private void SaveCoins()
+    {
+        PlayerPrefs.SetInt("coins",_coins);
+    }
+    private void LoadCoins()
+    {
+        _coins = PlayerPrefs.GetInt("coins");
     }
 }

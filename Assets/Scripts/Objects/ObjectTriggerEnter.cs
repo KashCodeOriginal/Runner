@@ -8,9 +8,10 @@ public class ObjectTriggerEnter : MonoBehaviour
         {
             enemy.gameObject.SetActive(false);
         }
-        if (collider.TryGetComponent(out Coin coin))
+
+        if (collider.gameObject.tag == "Coin")
         {
-            coin.gameObject.SetActive(false);
+            collider.gameObject.transform.parent.gameObject.SetActive(false);
         }
     }
 }

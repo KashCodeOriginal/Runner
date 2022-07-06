@@ -32,11 +32,13 @@ public class RandomPositionMover : MonoBehaviour
         else
         {
             gameObject.transform.position = RandomPositionGenerator();
+            Debug.Log(gameObject.transform.position);
         }
     }
     private Vector3 RandomPositionGenerator()
     {
         Vector3 _position = new Vector3(random.Next(_minX,_maxX)/100f,_height,_zPos); // 100f - divide to do float coordinates
+        Debug.Log(_position);
         return _position;
     }
 

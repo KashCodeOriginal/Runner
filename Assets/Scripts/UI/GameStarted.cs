@@ -10,13 +10,14 @@ public class GameStarted : MonoBehaviour
 
     [SerializeField] private PlayerInput _playerInput;
     [SerializeField] private Spawner _spawner;
-    [SerializeField] private ScoreDisplay _scoreDisplay;
+    [SerializeField] private Spawner _coinsSpawner;
 
     public void StartGame()
     {
         PlayerStartAnimation();
         PlayerMovingStart();
         EnemyMovingStart();
+        CoinsMovingStart();
         GameIsStarted?.Invoke();
     }
  
@@ -35,5 +36,10 @@ public class GameStarted : MonoBehaviour
     private void EnemyMovingStart()
     {
         _spawner.enabled = true;
+    }
+
+    private void CoinsMovingStart()
+    {
+        _coinsSpawner.enabled = true;
     }
 }

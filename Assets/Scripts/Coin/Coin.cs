@@ -13,6 +13,6 @@ public class Coin : MonoBehaviour
     }
     private void Hide()
     {
-        gameObject.SetActive(false);
+        gameObject.transform.parent.gameObject.SetActive(false);
     }
 }
