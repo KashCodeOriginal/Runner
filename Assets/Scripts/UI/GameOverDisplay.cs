@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameOverDisplay : MonoBehaviour
 {
+    public UnityAction PlayerDied;
+
     [SerializeField] private Player _player;
     [SerializeField] private PlayerInput _playerInput;
 
@@ -46,6 +49,8 @@ public class GameOverDisplay : MonoBehaviour
         _playerInput.enabled = false;
         _enemySpawner.enabled = false;
         _gameOverPanel.SetActive(true);
+        
+        PlayerDied?.Invoke();
 
         ControlAllEnemies(false);
     }

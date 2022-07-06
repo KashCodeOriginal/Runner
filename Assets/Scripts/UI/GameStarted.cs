@@ -1,18 +1,23 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameStarted : MonoBehaviour
 {
+    public UnityAction GameIsStarted;
+    
     [SerializeField] private Animator _playerAnimation;
     [SerializeField] private Transform _playerTransform;
 
     [SerializeField] private PlayerInput _playerInput;
     [SerializeField] private EnemySpawner _spawner;
+    [SerializeField] private ScoreDisplay _scoreDisplay;
 
     public void StartGame()
     {
         PlayerStartAnimation();
         PlayerMovingStart();
         EnemyMovingStart();
+        GameIsStarted?.Invoke();
     }
  
     private void PlayerStartAnimation()

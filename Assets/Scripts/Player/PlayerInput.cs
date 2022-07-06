@@ -11,6 +11,8 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private float _xMax;
 
     [SerializeField] private float _allowedTimeWithoutTouching;
+    [SerializeField] private float _minimalTimeWithoutTouching;
+    [SerializeField] private float _decreaseStep;
 
     [SerializeField] private GameValuesChanger gameValuesChanger;
     
@@ -32,7 +34,7 @@ public class PlayerInput : MonoBehaviour
     {
         _passedTimeWithoutTouching += Time.deltaTime;
         
-        gameValuesChanger.TryDecreaseInactiveValue(ref _allowedTimeWithoutTouching);
+        gameValuesChanger.TryDecreaseValue(ref _allowedTimeWithoutTouching,_minimalTimeWithoutTouching, _decreaseStep);
         
         if (Input.GetMouseButtonDown(0))
         {

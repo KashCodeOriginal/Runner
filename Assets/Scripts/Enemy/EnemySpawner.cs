@@ -5,6 +5,8 @@ public class EnemySpawner : ObjectsPool
     [SerializeField] private GameObject _enemyPrefab;
 
     [SerializeField] private float _timeBetweenSpawn;
+    [SerializeField] private float _minTimeBetweenSpawn;
+    [SerializeField] private float _decreaseStep;
 
     [SerializeField] private GameValuesChanger gameValuesChanger;
 
@@ -30,7 +32,7 @@ public class EnemySpawner : ObjectsPool
                 SetEnemy(enemy);
             }
         }
-        gameValuesChanger.TryDecreaseEnemiesValue(ref _timeBetweenSpawn);
+        gameValuesChanger.TryDecreaseValue(ref _timeBetweenSpawn, _minTimeBetweenSpawn,_decreaseStep);
     }
 
     private void SetEnemy(GameObject enemy)
