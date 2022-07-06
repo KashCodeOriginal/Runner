@@ -33,7 +33,6 @@ public class PlayerInput : MonoBehaviour
     private void Update()
     {
         _passedTimeWithoutTouching += Time.deltaTime;
-        
         gameValuesChanger.TryDecreaseValue(ref _allowedTimeWithoutTouching,_minimalTimeWithoutTouching, _decreaseStep);
         
         if (Input.GetMouseButtonDown(0))
@@ -42,8 +41,8 @@ public class PlayerInput : MonoBehaviour
         }
         else if (Input.GetMouseButton(0))
         {
-            float posx = Input.mousePosition.x - _startPos.x;
-
+            float posx = (Input.mousePosition.x - _startPos.x) / 1000;
+            
             targetPosx = Mathf.Clamp(transform.position.x + posx, _xMin, _xMax);
 
             _passedTimeWithoutTouching = 0;

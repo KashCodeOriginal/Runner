@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class EnemySpawner : ObjectsPool
+public class Spawner : ObjectsPool
 {
-    [SerializeField] private GameObject _enemyPrefab;
+    [SerializeField] private GameObject _objectPrefab;
 
     [SerializeField] private float _timeBetweenSpawn;
     [SerializeField] private float _minTimeBetweenSpawn;
@@ -10,35 +10,35 @@ public class EnemySpawner : ObjectsPool
 
     [SerializeField] private GameValuesChanger gameValuesChanger;
 
-    private float _passedTimeBetweenEnemies = 0;
+    private float _passedTimeBetweenObjects = 0;
     
     private RandomPositionMover _randomPositionMover;
 
     private void Start()
     {
         _randomPositionMover = gameObject.GetComponent<RandomPositionMover>();
-        Initialize(_enemyPrefab);
+        Initialize(_objectPrefab);
     }
 
     private void Update()
     {
-        _passedTimeBetweenEnemies += Time.deltaTime;
+        _passedTimeBetweenObjects += Time.deltaTime;
 
-        if (_passedTimeBetweenEnemies >= _timeBetweenSpawn)
+        if (_passedTimeBetweenObjects >= _timeBetweenSpawn)
         {
-            if (TryGetEnemy(out GameObject enemy))
+            if (TryGetObject(out GameObject obj))
             {
-                _passedTimeBetweenEnemies = 0;
-                SetEnemy(enemy);
+                _passedTimeBetweenObjects = 0;
+                SetObject(obj);
             }
         }
         gameValuesChanger.TryDecreaseValue(ref _timeBetweenSpawn, _minTimeBetweenSpawn,_decreaseStep);
     }
 
-    private void SetEnemy(GameObject enemy)
+    private void SetObject(GameObject obj)
     {
-        enemy.SetActive(true);
-        _randomPositionMover.MoveToPosition(enemy);
+        obj.SetActive(true);
+        _randomPositionMover.MoveToPosition(obj);
     }
 }
  

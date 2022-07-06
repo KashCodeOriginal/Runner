@@ -12,7 +12,7 @@ public class GameOverDisplay : MonoBehaviour
 
     [SerializeField] private GameObject _gameOverPanel;
 
-    [SerializeField] private EnemySpawner _enemySpawner;
+    [SerializeField] private Spawner spawner;
 
     [SerializeField] private Transform _enemiesList;
 
@@ -47,7 +47,7 @@ public class GameOverDisplay : MonoBehaviour
     private void OnPlayerDied()
     {
         _playerInput.enabled = false;
-        _enemySpawner.enabled = false;
+        spawner.enabled = false;
         _gameOverPanel.SetActive(true);
         
         PlayerDied?.Invoke();

@@ -9,7 +9,7 @@ public class GameStarted : MonoBehaviour
     [SerializeField] private Transform _playerTransform;
 
     [SerializeField] private PlayerInput _playerInput;
-    [SerializeField] private EnemySpawner _spawner;
+    [SerializeField] private Spawner _spawner;
     [SerializeField] private ScoreDisplay _scoreDisplay;
 
     public void StartGame()

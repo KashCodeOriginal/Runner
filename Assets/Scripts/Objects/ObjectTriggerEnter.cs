@@ -8,5 +8,9 @@ public class ObjectTriggerEnter : MonoBehaviour
         {
             enemy.gameObject.SetActive(false);
         }
+        if (collider.TryGetComponent(out Coin coin))
+        {
+            coin.gameObject.SetActive(false);
+        }
     }
 }
