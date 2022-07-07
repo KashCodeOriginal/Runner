@@ -3,7 +3,6 @@ using UnityEngine;
 public class CameraFollowing : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
-    [SerializeField] private float _rotationSpeed;
     [Space(15)]
     [SerializeField] private Transform _target;
     [SerializeField] private float _height;
@@ -21,6 +20,5 @@ public class CameraFollowing : MonoBehaviour
 
         var targetRotation = Quaternion.LookRotation(_target.forward, Vector3.up);
         targetRotation.eulerAngles = new Vector3(_lookAngle, targetRotation.eulerAngles.y, targetRotation.eulerAngles.z);
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
     }
 }

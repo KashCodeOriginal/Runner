@@ -10,6 +10,8 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private float _xMin;
     [SerializeField] private float _xMax;
 
+    [SerializeField] private float _sensivity;
+
     [SerializeField] private float _allowedTimeWithoutTouching;
     [SerializeField] private float _minimalTimeWithoutTouching;
     [SerializeField] private float _decreaseStep;
@@ -41,9 +43,9 @@ public class PlayerInput : MonoBehaviour
         }
         else if (Input.GetMouseButton(0))
         {
-            float posx = (Input.mousePosition.x - _startPos.x) / 1000;
+            float posx = (Input.mousePosition.x - _startPos.x);
             
-            targetPosx = Mathf.Clamp(transform.position.x + posx, _xMin, _xMax);
+            targetPosx = Mathf.Clamp(transform.position.x + posx * _sensivity, _xMin, _xMax);
 
             _passedTimeWithoutTouching = 0;
             

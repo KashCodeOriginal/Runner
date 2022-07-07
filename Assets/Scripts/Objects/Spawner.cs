@@ -2,43 +2,56 @@ using UnityEngine;
 
 public class Spawner : ObjectsPool
 {
-    [SerializeField] private GameObject _objectPrefab;
+    [SerializeField] private GameObject _coinsPrefabs;
+    [SerializeField] private GameObject[] _objectPrefabs;
 
-    [SerializeField] private float _timeBetweenSpawn;
-    [SerializeField] private float _minTimeBetweenSpawn;
+    [SerializeField] private float _timeBetweenEnemiesSpawn;
+    [SerializeField] private float _minTimeBetweenEnemiesSpawn;
     [SerializeField] private float _decreaseStep;
-
-    [SerializeField] private GameValuesChanger gameValuesChanger;
-
-    private float _passedTimeBetweenObjects = 0;
     
-    private RandomPositionMover _randomPositionMover;
+    [SerializeField] private float _timeBetweenCoinsSpawn;
+    
+    [SerializeField] private GameValuesChanger gameValuesChanger;
+    [SerializeField] private RandomPositionMover _randomPositionMover;
+    
+    private float _passedTimeBetweenEnemiesObjects = 0;
+    private float _passedTimeBetweenCoinsObjects = 0;
 
     private void Start()
     {
         _randomPositionMover = gameObject.GetComponent<RandomPositionMover>();
-        Initialize(_objectPrefab);
+        Initialize(_objectPrefabs);
+        Initialize(_coinsPrefabs);
     }
 
     private void Update()
     {
-        _passedTimeBetweenObjects += Time.deltaTime;
+        _passedTimeBetweenEnemiesObjects += Time.deltaTime;
+        _passedTimeBetweenCoinsObjects += Time.deltaTime;
 
-        if (_passedTimeBetweenObjects >= _timeBetweenSpawn)
+        if (_passedTimeBetweenEnemiesObjects >= _timeBetweenEnemiesSpawn)
         {
             if (TryGetObject(out GameObject obj))
             {
-                _passedTimeBetweenObjects = 0;
+                _passedTimeBetweenEnemiesObjects = 0;
                 SetObject(obj);
             }
         }
-        gameValuesChanger.TryDecreaseValue(ref _timeBetweenSpawn, _minTimeBetweenSpawn,_decreaseStep);
+        else if (_passedTimeBetweenCoinsObjects >= _timeBetweenCoinsSpawn)
+        {
+            if (TryGetCoinObject(out GameObject obj))
+            {
+                _passedTimeBetweenCoinsObjects = 0;
+                SetObject(obj);
+            }
+        }
+        gameValuesChanger.TryDecreaseValue(ref _timeBetweenEnemiesSpawn, _minTimeBetweenEnemiesSpawn,_decreaseStep);
     }
 
     private void SetObject(GameObject obj)
     {
         obj.SetActive(true);
-        _randomPositionMover.MoveToPosition(obj);
+        _randomPositionMover.MoveObjectToPosition(obj);
     }
 }
  
