@@ -921,8 +921,9 @@ MonoBehaviour:
   _player: {fileID: 5477898819117310074}
   _playerInput: {fileID: 5477898819117310077}
   _gameOverPanel: {fileID: 616385020}
-  spawner: {fileID: 0}
+  spawner: {fileID: 1542196125}
   _enemiesList: {fileID: 665123352}
+  _coinsList: {fileID: 870386501}
   _restartButton: {fileID: 21479499}
 --- !u!1 &419082090
 GameObject:
@@ -1151,7 +1152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 665123352}
   m_Layer: 0
-  m_Name: Objects
+  m_Name: Enemies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1318,13 +1319,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _score: {fileID: 1095334060}
   _highscore: {fileID: 1636767095}
-  _timeBetweenAddingScore: 1.5
+  _timeBetweenAddingScore: 1
   _minTimeBetweenAddingScore: 0.01
-  _decreaseStep: 0.00001
+  _decreaseStep: 0.000002
   _scorePerSeconds: 1
   _gameStarted: {fileID: 404885625}
   _gameOverDisplay: {fileID: 404885626}
   _gameValuesChanger: {fileID: 404885623}
+--- !u!1 &870386500
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 870386501}
+  m_Layer: 0
+  m_Name: Coins
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &870386501
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870386500}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1542196126}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1424,8 +1455,7 @@ MonoBehaviour:
   _moveSpeed: 5
   _target: {fileID: 1887670188}
   _height: 7
-  _distance: 3.5
-  _lookAngle: 37.5
+  _distance: 4
 --- !u!1 &1041196981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1993,13 +2023,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectsContainer: {fileID: 665123352}
-  _amountOfObjects: 10
+  _coinsContainer: {fileID: 870386501}
+  _amountOfObjects: 15
+  _coinsPrefabs: {fileID: 7306425357130280937, guid: a8739f36cbac1d442ad99c8efe8bf916, type: 3}
   _objectPrefabs:
-  - {fileID: 7306425357130280937, guid: a8739f36cbac1d442ad99c8efe8bf916, type: 3}
-  - {fileID: 749889366636181371, guid: 3f75811d837f42a489b425bc6eb05d91, type: 3}
-  _timeBetweenSpawn: 3
-  _minTimeBetweenSpawn: 0.5
+  - {fileID: 749889366636181371, guid: f81a16f9caa3f9d4ca5f215702ac97e5, type: 3}
+  - {fileID: 749889366636181371, guid: 3268419c854dc6849be373ccb7f77116, type: 3}
+  - {fileID: 749889366636181371, guid: 73c2fec874d714842af4659ac6e4c1bb, type: 3}
+  - {fileID: 749889366636181371, guid: 1c837766cc9b3e445824e41658dd05ed, type: 3}
+  _timeBetweenEnemiesSpawn: 5
+  _minTimeBetweenEnemiesSpawn: 0.5
   _decreaseStep: 0.00001
+  _timeBetweenCoinsSpawn: 6
   gameValuesChanger: {fileID: 404885623}
   _randomPositionMover: {fileID: 1542196127}
 --- !u!4 &1542196126
@@ -2014,6 +2049,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 665123352}
+  - {fileID: 870386501}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

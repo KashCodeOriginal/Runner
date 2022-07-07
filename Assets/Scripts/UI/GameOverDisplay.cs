@@ -15,6 +15,7 @@ public class GameOverDisplay : MonoBehaviour
     [SerializeField] private Spawner spawner;
 
     [SerializeField] private Transform _enemiesList;
+    [SerializeField] private Transform _coinsList;
 
     [SerializeField] private Button _restartButton;
     
@@ -22,13 +23,17 @@ public class GameOverDisplay : MonoBehaviour
     {
         _gameOverPanel.SetActive(false);
     }
-    private void ControlAllEnemies(bool enableEnemyMoving)
+    private void ControlAllEnemies(bool enableObjectsMoving, Transform list)
     {
-        foreach (Transform enemy in _enemiesList)
+        foreach (Transform obj in list)
         {
-            if (enemy.gameObject.activeSelf == true)
+            if (obj.gameObject.activeSelf == true && obj.gameObject.GetComponent<Enemy>() == true)
             {
-                enemy.gameObject.GetComponent<EnemyMover>().enabled = enableEnemyMoving;
+                obj.gameObject.GetComponent<EnemyMover>().enabled = enableObjectsMoving;
+            }
+            else if (obj.gameObject.activeSelf == true && obj.gameObject.GetComponent<Coin>() == true)
+            {
+                obj.gameObject.GetComponent<CoinMover>().enabled = enableObjectsMoving;
             }
         }
     }
@@ -52,7 +57,8 @@ public class GameOverDisplay : MonoBehaviour
         
         PlayerDied?.Invoke();
 
-        ControlAllEnemies(false);
+        ControlAllEnemies(false,_enemiesList);
+        ControlAllEnemies(false,_coinsList);
     }
 
     private void RestartGame()
