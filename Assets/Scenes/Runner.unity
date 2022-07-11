@@ -2189,13 +2189,17 @@ MonoBehaviour:
   - {fileID: 749889366636181371, guid: f81a16f9caa3f9d4ca5f215702ac97e5, type: 3}
   - {fileID: 6456972565209380777, guid: f41fd16848d926c4e8713bf8a73f9f9a, type: 3}
   _longObjectPrefabs:
-  - {fileID: 749889366636181371, guid: cf3e3f155f34bae4d9231fbcafa6ca78, type: 3}
+  - {fileID: 6456972565209380777, guid: e1defdd03b739ac44b3c22ab529c4995, type: 3}
   - {fileID: 6456972565209380777, guid: 2cceb9402df3b524190da4168766c411, type: 3}
   _timeBetweenEnemiesSpawn: 5
-  _minTimeBetweenEnemiesSpawn: 0.5
+  _minTimeBetweenEnemiesSpawn: 0.75
   _decreaseStep: 0.00001
   _timeBetweenCoinsSpawn: 6
-  _timeBetweenLongObjectsSpawn: 5
+  _minTimeBetweenCoinsSpawn: 1.75
+  _decreaseCoinStep: 0.0002
+  _timeBetweenLongObjectsSpawn: 14.5
+  _minTimeBetweenLongObjectsSpawn: 2
+  _decreaseLongObjectstep: 0.000001
   gameValuesChanger: {fileID: 404885623}
   _randomPositionMover: {fileID: 1542196127}
 --- !u!4 &1542196126
@@ -2230,6 +2234,7 @@ MonoBehaviour:
   _minX: -130
   _maxX: 130
   _height: 0.9
+  _heightOfLongObjects: 1.2
   _zPos: 45
   _playerTransform: {fileID: 1887670188}
   _playerInput: {fileID: 5477898819117310077}
@@ -2448,7 +2453,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 70a99ab5999bd5d42b469b97d71e8b1a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -3673,10 +3678,10 @@ GameObject:
   - component: {fileID: 1887670188}
   - component: {fileID: 1880449126}
   - component: {fileID: 5477898819117310079}
-  - component: {fileID: 5421021412470605292}
   - component: {fileID: 5477898819117310074}
   - component: {fileID: 5477898819117310077}
   - component: {fileID: 5477898819117310076}
+  - component: {fileID: 1887704013}
   m_Layer: 0
   m_Name: Stickman_sphere_Boxer
   m_TagString: MainPlayer
@@ -3684,6 +3689,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!111 &1887704013
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887704012}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 18074704eade0b84b836778345e0f625, type: 2}
+  - {fileID: 7400000, guid: b9d1681c51d910847b49bb19fcf63143, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1887704014
 GameObject:
   m_ObjectHideFlags: 0
@@ -4154,19 +4176,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2109097604}
   m_CullTransparentMesh: 1
---- !u!65 &5421021412470605292
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887704012}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 1.55, z: 0.65}
-  m_Center: {x: 0, y: 0.89, z: 0}
 --- !u!114 &5477898819117310074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4224,5 +4233,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1.55, z: 0.65}
-  m_Center: {x: 0, y: 0.89, z: 0}
+  m_Size: {x: 0.5, y: 1.5, z: 0.65}
+  m_Center: {x: 0, y: 0.8, z: 0}

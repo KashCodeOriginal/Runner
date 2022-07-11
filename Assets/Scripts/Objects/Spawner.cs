@@ -12,9 +12,11 @@ public class Spawner : ObjectsPool
     
     [SerializeField] private float _timeBetweenCoinsSpawn;
     [SerializeField] private float _minTimeBetweenCoinsSpawn;
+    [SerializeField] private float _decreaseCoinStep;
     
     [SerializeField] private float _timeBetweenLongObjectsSpawn;
     [SerializeField] private float _minTimeBetweenLongObjectsSpawn;
+    [SerializeField] private float _decreaseLongObjectstep;
     
     [SerializeField] private GameValuesChanger gameValuesChanger;
     [SerializeField] private RandomPositionMover _randomPositionMover;
@@ -42,15 +44,15 @@ public class Spawner : ObjectsPool
         CheckPassedTime(_passedTimeBetweenLongObjects, _timeBetweenLongObjectsSpawn, "longObj");
         
         gameValuesChanger.TryDecreaseValue(ref _timeBetweenEnemiesSpawn, _minTimeBetweenEnemiesSpawn,_decreaseStep);
-        gameValuesChanger.TryDecreaseValue(ref _timeBetweenCoinsSpawn, _minTimeBetweenCoinsSpawn,_decreaseStep);
-        gameValuesChanger.TryDecreaseValue(ref _timeBetweenLongObjectsSpawn, _minTimeBetweenLongObjectsSpawn,_decreaseStep);
+        gameValuesChanger.TryDecreaseValue(ref _timeBetweenCoinsSpawn, _minTimeBetweenCoinsSpawn,_decreaseCoinStep);
+        gameValuesChanger.TryDecreaseValue(ref _timeBetweenLongObjectsSpawn, _minTimeBetweenLongObjectsSpawn,_decreaseLongObjectstep);
         
     }
 
-    private void SetObject(GameObject obj)
+    private void SetObject(GameObject obj, bool isPositionRandom)
     {
         obj.SetActive(true);
-        _randomPositionMover.MoveObjectToPosition(obj);
+        _randomPositionMover.MoveObjectToPosition(obj, isPositionRandom);
     }
 
     private void CheckPassedTime(float passedTime, float timeBetweenSpawn, string _objClass)
@@ -63,21 +65,21 @@ public class Spawner : ObjectsPool
                     if (TryGetObject(out GameObject obj, _pool))
                     {
                         _passedTimeBetweenEnemiesObjects = 0;
-                        SetObject(obj);
+                        SetObject(obj, true);
                     }
                     break;
                 case "coin":
                     if (TryGetObject(out GameObject coin, _coinsPool))
                     {
                         _passedTimeBetweenCoinsObjects = 0;
-                        SetObject(coin);
+                        SetObject(coin, true);
                     }
                     break;
                 case "longObj":
                     if (TryGetObject(out GameObject longObj, _longObjPool))
                     {
                         _passedTimeBetweenLongObjects = 0;
-                        SetObject(longObj);
+                        SetObject(longObj, false);
                     }
                     break;
             }

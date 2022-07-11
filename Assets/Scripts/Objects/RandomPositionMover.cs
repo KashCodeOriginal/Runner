@@ -9,6 +9,7 @@ public class RandomPositionMover : MonoBehaviour
     
     [Header("Height of object on road")]
     [SerializeField] private float _height;
+    [SerializeField] private float _heightOfLongObjects;
 
     [Header("Start position by Z-axis")]
     [SerializeField] private float _zPos;
@@ -21,12 +22,16 @@ public class RandomPositionMover : MonoBehaviour
 
     private bool IsPlayerInactiveValue;
     
-    public void MoveObjectToPosition(GameObject gameObject)
+    public void MoveObjectToPosition(GameObject gameObject,bool isPositionRandom)
     {
         if (IsPlayerInactiveValue == true)
         {
             gameObject.transform.position = new Vector3(_playerTransform.position.x,_height,_zPos);
             IsPlayerInactiveValue = false;
+        }
+        else if (isPositionRandom == false)
+        {
+            gameObject.transform.position = new Vector3(0f,_heightOfLongObjects, _zPos);
         }
         else
         {

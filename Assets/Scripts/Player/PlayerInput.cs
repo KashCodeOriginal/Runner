@@ -26,11 +26,13 @@ public class PlayerInput : MonoBehaviour
     private float _passedTimeWithoutTouching;
 
     private Animator _animator;
+    private Animation _animation;
     private void Start()
     {
         _playerMover = gameObject.GetComponent<PlayerMover>();
         _player = gameObject.GetComponent<Player>();
         _animator = gameObject.GetComponent<Animator>();
+        _animation = gameObject.GetComponent<Animation>();
         targetPosx = transform.position.x;
     }
 
@@ -65,11 +67,13 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             _animator.SetTrigger("Jump");
-            
+            _animation.Play("ColliderUp1");
+
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
             _animator.SetTrigger("Slide");
+            _animation.Play("ColliderDown");
         }
         
         _playerMover.TryMove(targetPosx);
