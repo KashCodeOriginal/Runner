@@ -11,11 +11,14 @@ public class GameOverDisplay : MonoBehaviour
     [SerializeField] private PlayerInput _playerInput;
 
     [SerializeField] private GameObject _gameOverPanel;
+    
+    [SerializeField] private GameObject _healthDeplay;
 
     [SerializeField] private Spawner spawner;
 
     [SerializeField] private Transform _enemiesList;
     [SerializeField] private Transform _coinsList;
+    [SerializeField] private Transform _longObjList;
 
     [SerializeField] private Button _restartButton;
     
@@ -53,12 +56,16 @@ public class GameOverDisplay : MonoBehaviour
     {
         _playerInput.enabled = false;
         spawner.enabled = false;
+        
+        _healthDeplay.SetActive(false);
+        
         _gameOverPanel.SetActive(true);
         
         PlayerDied?.Invoke();
 
         ControlAllEnemies(false,_enemiesList);
         ControlAllEnemies(false,_coinsList);
+        ControlAllEnemies(false,_longObjList);
     }
 
     private void RestartGame()

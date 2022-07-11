@@ -921,9 +921,11 @@ MonoBehaviour:
   _player: {fileID: 5477898819117310074}
   _playerInput: {fileID: 5477898819117310077}
   _gameOverPanel: {fileID: 616385020}
+  _healthDeplay: {fileID: 206451397}
   spawner: {fileID: 1542196125}
   _enemiesList: {fileID: 665123352}
   _coinsList: {fileID: 870386501}
+  _longObjList: {fileID: 453275150}
   _restartButton: {fileID: 21479499}
 --- !u!1 &419082090
 GameObject:
@@ -2191,15 +2193,15 @@ MonoBehaviour:
   _longObjectPrefabs:
   - {fileID: 6456972565209380777, guid: e1defdd03b739ac44b3c22ab529c4995, type: 3}
   - {fileID: 6456972565209380777, guid: 2cceb9402df3b524190da4168766c411, type: 3}
-  _timeBetweenEnemiesSpawn: 5
-  _minTimeBetweenEnemiesSpawn: 0.75
-  _decreaseStep: 0.00001
-  _timeBetweenCoinsSpawn: 6
+  _timeBetweenEnemiesSpawn: 5.6
+  _minTimeBetweenEnemiesSpawn: 1.5
+  _decreaseStep: 0.00027
+  _timeBetweenCoinsSpawn: 6.89
   _minTimeBetweenCoinsSpawn: 1.75
-  _decreaseCoinStep: 0.0002
-  _timeBetweenLongObjectsSpawn: 14.5
-  _minTimeBetweenLongObjectsSpawn: 2
-  _decreaseLongObjectstep: 0.000001
+  _decreaseCoinStep: 0.0008
+  _timeBetweenLongObjectsSpawn: 10
+  _minTimeBetweenLongObjectsSpawn: 3
+  _decreaseLongObjectstep: 0.00001
   gameValuesChanger: {fileID: 404885623}
   _randomPositionMover: {fileID: 1542196127}
 --- !u!4 &1542196126
@@ -3700,10 +3702,10 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 0}
   m_Animations:
-  - {fileID: 7400000, guid: 18074704eade0b84b836778345e0f625, type: 2}
+  - {fileID: 7400000, guid: 56101bcf633cd4b4a8d9394809a0493c, type: 2}
   - {fileID: 7400000, guid: b9d1681c51d910847b49bb19fcf63143, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 0
+  m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!1 &1887704014
