@@ -3,7 +3,6 @@ using UnityEngine;
 public class CameraFollowing : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
-    [Space(15)]
     [SerializeField] private Transform _target;
     [SerializeField] private float _height;
     [SerializeField] private float _distance;

@@ -4,45 +4,45 @@ using System.Linq;
 
 public class ObjectsPool : MonoBehaviour
 {
-    [SerializeField] private Transform _objectsContainer;
-    [SerializeField] private Transform _coinsContainer;
-    [SerializeField] private int _amountOfObjects;
+    [SerializeField] protected Transform _objectsContainer;
+    [SerializeField] protected Transform _coinsContainer;
+    [SerializeField] protected Transform _longObjContainer;
     
+    [SerializeField] private int _amountOfObjects;
+
     System.Random random = new System.Random();
 
-    private List<GameObject> _pool = new List<GameObject>();
+    protected List<GameObject> _pool = new List<GameObject>();
     
-    private List<GameObject> _coinsPool = new List<GameObject>();
+    protected List<GameObject> _coinsPool = new List<GameObject>();
+    
+    protected List<GameObject> _longObjPool = new List<GameObject>();
 
-    protected void Initialize(GameObject _objectPrefab)
+    protected void Initialize(GameObject objectPrefab)
     {
         for (int i = 0; i < _amountOfObjects; i++)
         {
-            GameObject spawnedCoin = Instantiate(_objectPrefab, _coinsContainer.transform);
+            GameObject spawnedCoin = Instantiate(objectPrefab, _coinsContainer.transform);
             spawnedCoin.SetActive(false);
 
             _coinsPool.Add(spawnedCoin);
         }
     }
-    protected void Initialize(GameObject[] _objectPrefabs)
+
+    protected void Initialize(GameObject[] objectPrefabs, List<GameObject> list, Transform listTransform)
     {
         for (int i = 0; i < _amountOfObjects; i++)
         {
-            GameObject spawnedEnemy = Instantiate(_objectPrefabs[random.Next(0,_objectPrefabs.Length)], _objectsContainer.transform);
+            GameObject spawnedEnemy = Instantiate(objectPrefabs[random.Next(0,objectPrefabs.Length)], listTransform.transform);
             spawnedEnemy.SetActive(false);
 
-            _pool.Add(spawnedEnemy);
+            list.Add(spawnedEnemy);
         }
     }
 
-    protected bool TryGetObject(out GameObject result)
+    protected bool TryGetObject(out GameObject result, List<GameObject> list)
     {
-        result = _pool.FirstOrDefault(p => p.activeSelf == false);
-        return result != null;
-    }
-    protected bool TryGetCoinObject(out GameObject result)
-    {
-        result = _coinsPool.FirstOrDefault(p => p.activeSelf == false);
+        result = list.FirstOrDefault(p => p.activeSelf == false);
         return result != null;
     }
 }

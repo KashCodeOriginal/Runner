@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -27,10 +26,8 @@ public class PlayerInput : MonoBehaviour
     private float _passedTimeWithoutTouching;
 
     private Animator _animator;
-
     private void Start()
     {
-        
         _playerMover = gameObject.GetComponent<PlayerMover>();
         _player = gameObject.GetComponent<Player>();
         _animator = gameObject.GetComponent<Animator>();
@@ -68,12 +65,15 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             _animator.SetTrigger("Jump");
+            
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
             _animator.SetTrigger("Slide");
         }
+        
         _playerMover.TryMove(targetPosx);
+
         _player.gameObject.transform.position = new Vector3(_player.gameObject.transform.position.x, _player.gameObject.transform.position.y, -8.5f);
     }
 }
