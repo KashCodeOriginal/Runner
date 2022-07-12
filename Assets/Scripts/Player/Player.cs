@@ -4,7 +4,8 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
     [SerializeField] private int _health;
-    [SerializeField] private int _coins;
+    [SerializeField] private int _totalCoins;
+    [SerializeField] private int _currentCoins;
     
     private Animator _animator;
 
@@ -17,7 +18,8 @@ public class Player : MonoBehaviour
     {
         LoadCoins();
         PlayerHealthChanged?.Invoke(_health);
-        PlayerCoinsChanged?.Invoke(_coins);
+        _currentCoins = 0;
+        PlayerCoinsChanged?.Invoke(_currentCoins);
         _animator = gameObject.GetComponent<Animator>();
     }
     
@@ -35,9 +37,10 @@ public class Player : MonoBehaviour
 
     public void AddCoin(int ammount)
     {
-        _coins += ammount;
+        _currentCoins += ammount;
+        _totalCoins += ammount;
         
-        PlayerCoinsChanged?.Invoke(_coins);
+        PlayerCoinsChanged?.Invoke(_currentCoins);
 
         SaveCoins();
     }
@@ -50,10 +53,10 @@ public class Player : MonoBehaviour
     
     private void SaveCoins()
     {
-        PlayerPrefs.SetInt("coins",_coins);
+        PlayerPrefs.SetInt("coins",_totalCoins);
     }
     private void LoadCoins()
     {
-        _coins = PlayerPrefs.GetInt("coins");
+        _totalCoins = PlayerPrefs.GetInt("coins");
     }
 }
