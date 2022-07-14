@@ -48,7 +48,7 @@ public class DisplayHealth : MonoBehaviour
 
     private void DestroyHeart(GameObject gameObject)
     {
+        _hearts.Remove(gameObject);
         Destroy(gameObject);
-        gameObject.toE
     }
 }
