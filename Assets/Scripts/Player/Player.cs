@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     
     private void Start()
     {
+        Application.targetFrameRate = 60;
         LoadCoins();
         PlayerHealthChanged?.Invoke(_health);
         _currentCoins = 0;
