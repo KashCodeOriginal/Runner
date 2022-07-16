@@ -64,10 +64,10 @@ Material:
     m_Colors:
     - _DeepColor: {r: 0.89423174, g: 0.5981132, b: 1, a: 1}
     - _EdgeFoamColor: {r: 1, g: 1, b: 1, a: 1}
-    - _FarColor: {r: 0.26105702, g: 0.107547104, b: 1, a: 1}
+    - _FarColor: {r: 0.10588235, g: 0.91981405, b: 1, a: 1}
     - _SSSColor: {r: 0, g: 0, b: 0, a: 1}
     - _ShadowColor: {r: 0, g: 0.8136214, b: 0.9811321, a: 1}
-    - _ShallowColor: {r: 1.7355901, g: 0.2521517, b: 0.28117886, a: 1}
+    - _ShallowColor: {r: 0.1399032, g: 2.3171492, b: 2.0413172, a: 1}
     - _SparkleColor: {r: 0.740566, g: 1, b: 0.9357789, a: 1}
     - _SunSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
