@@ -334,13 +334,13 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: Stickman_sphere_Boxer(Clone)
+    - name: Stickman_sphere_Police(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Skelet.c
-      parentName: Stickman_sphere_Boxer(Clone)
+      parentName: Stickman_sphere_Police(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071067, y: -0.000000030908616, z: 0.000000030908623, w: 0.7071068}
       scale: {x: 1, y: 1, z: 1}
@@ -489,23 +489,43 @@ ModelImporter:
       position: {x: 0.000060849008, y: 0.29228517, z: -0.00028399628}
       rotation: {x: 0.7823185, y: -0.6223314, z: -0.025658494, w: -0.0048111854}
       scale: {x: 1, y: 1, z: 1}
-    - name: Helment
-      parentName: Stickman_sphere_Boxer(Clone)
+    - name: Shirt
+      parentName: Stickman_sphere_Police(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -6.123234e-17, y: 1, z: 6.123234e-17, w: -3.7493994e-33}
       scale: {x: 1, y: 1, z: 1}
-    - name: Shorts
-      parentName: Stickman_sphere_Boxer(Clone)
+    - name: Tie_03
+      parentName: Stickman_sphere_Police(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -6.123234e-17, y: 1, z: 6.123234e-17, w: -3.7493994e-33}
       scale: {x: 1, y: 1, z: 1}
-    - name: Boxing_gloves
-      parentName: Stickman_sphere_Boxer(Clone)
+    - name: Police_pants
+      parentName: Stickman_sphere_Police(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -6.123234e-17, y: 1, z: 6.123234e-17, w: -3.7493994e-33}
       scale: {x: 1, y: 1, z: 1}
-    - name: Stickman_heads_sphere_01
-      parentName: Stickman_sphere_Boxer(Clone)
+    - name: Holster
+      parentName: Stickman_sphere_Police(Clone)
+      position: {x: 0.19948635, y: 0.79261667, z: -0.015866429}
+      rotation: {x: -0.4999981, y: 0.50000197, z: 0.49990106, w: 0.500099}
+      scale: {x: 0.09083118, y: 0.09083118, z: 0.09083118}
+    - name: Shoes_01
+      parentName: Stickman_sphere_Police(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -6.123234e-17, y: 1, z: 6.123234e-17, w: -3.7493994e-33}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cap_01
+      parentName: Stickman_sphere_Police(Clone)
+      position: {x: -0, y: 1.899879, z: -0.011050875}
+      rotation: {x: 6.123235e-17, y: -0.00000019470718, z: 6.123233e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Sunglasses.001
+      parentName: Stickman_sphere_Police(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -4.32978e-17, y: 0.7071067, z: 0.7071068, w: -4.3297806e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Stickman_heads_sphere_03
+      parentName: Stickman_sphere_Police(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -6.123234e-17, y: 1, z: 6.123234e-17, w: -3.7493994e-33}
       scale: {x: 1, y: 1, z: 1}
@@ -521,7 +541,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 74a16e09a9315f340a71b4b62575d18c, type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 9287f3dfc54bce84992db51bd9c66ab4, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
