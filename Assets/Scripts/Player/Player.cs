@@ -6,6 +6,10 @@ public class Player : MonoBehaviour
     [SerializeField] private int _health;
     [SerializeField] private int _totalCoins;
     [SerializeField] private int _currentCoins;
+
+    [SerializeField] private Sounds _sounds;
+
+    [SerializeField] private ParticleSystem _particleSystem;
     
     private Animator _animator;
 
@@ -33,6 +37,9 @@ public class Player : MonoBehaviour
         {
             Die();
         }
+        
+        _sounds.PlayHitSound();
+        _particleSystem.Play();
     }
 
     public void AddCoin(int ammount)
@@ -43,6 +50,8 @@ public class Player : MonoBehaviour
         PlayerCoinsChanged?.Invoke(_currentCoins);
 
         SaveCoins();
+        
+        _sounds.PlayCoinCollectSound();
     }
 
     private void Die()

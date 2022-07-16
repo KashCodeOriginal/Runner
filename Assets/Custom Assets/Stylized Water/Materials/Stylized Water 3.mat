@@ -54,7 +54,7 @@ Material:
     - _Wave1Direction: 0
     - _Wave1Speed: 0
     - _Wave1Wavelength: 0.98
-    - _Wave2Amplitude: 0.37
+    - _Wave2Amplitude: 0.2
     - _Wave2Direction: 0.51
     - _Wave2Speed: 2
     - _Wave2Wavelength: 7.3
