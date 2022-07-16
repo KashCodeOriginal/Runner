@@ -16,6 +16,6 @@ public class CoinDisplay : MonoBehaviour
     }
     private void AddCoin(int coins)
     {
-        _coinsText.text = coins.ToString();
+        _coinsText.text = "Coins: " + coins;
     }
 }

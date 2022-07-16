@@ -26,10 +26,10 @@ public class ScoreDisplay : MonoBehaviour
     
     private void Start()
     {
-        _score.text = "0";
+        _score.text = "Score: 0";
         _currentScore = 0;
         LoadScore();
-        _highscore.text = _currentHighscore.ToString();
+        _highscore.text = "Highscore: " + _currentHighscore;
         _isScoreStopped = true;
     }
 
@@ -51,12 +51,12 @@ public class ScoreDisplay : MonoBehaviour
     private void AddScore()
     {
         _currentScore += _scorePerSeconds;
-        _score.text = _currentScore.ToString();
+        _score.text = "Score: " + _currentScore;
 
         if (_currentScore >= _currentHighscore)
         {
             _currentHighscore = _currentScore;
-            _highscore.text = _currentHighscore.ToString();
+            _highscore.text = "Highscore: " + _currentHighscore;
             SaveScore();
         }
     }
