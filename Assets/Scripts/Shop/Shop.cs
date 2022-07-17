@@ -19,6 +19,7 @@ public class Shop : MonoBehaviour
 
     private void Start()
     {
+        _currentItem = 0;
         SwitchItem(_currentItem);
     }
 
@@ -28,7 +29,7 @@ public class Shop : MonoBehaviour
         {
             _currentItem = 0;
         }
-        else if (_currentItem <= 0 && value != 1)
+        else if (_currentItem == 0 && value != 1)
         {
             _currentItem = _shopItems.Count - 1;
         }

@@ -273,7 +273,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1763668052}
   - {fileID: 140702003}
   m_Father: {fileID: 214767284}
   m_RootOrder: 4
@@ -1080,7 +1079,7 @@ RectTransform:
   m_Children:
   - {fileID: 116047734}
   m_Father: {fileID: 44476471}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1712,6 +1711,7 @@ RectTransform:
   - {fileID: 44476471}
   - {fileID: 1402716089}
   - {fileID: 921909653}
+  - {fileID: 1763668052}
   m_Father: {fileID: 146455695}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1773,10 +1773,10 @@ MonoBehaviour:
   _item: {fileID: 921909652}
   _shopItems:
   - {fileID: 11400000, guid: c73ce0dfdfcab2849ae521efcacaf305, type: 2}
-  - {fileID: 11400000, guid: 5c5f05eb97ea6cc4584721e3cd12fad7, type: 2}
-  - {fileID: 11400000, guid: 9c6ab23d54ff60643a4d64259486f69e, type: 2}
-  - {fileID: 11400000, guid: e48ad3f479e364249ba5b6d18626fcbe, type: 2}
   - {fileID: 11400000, guid: 1de9b010d3e37e0478bc5da8ccb0b462, type: 2}
+  - {fileID: 11400000, guid: e48ad3f479e364249ba5b6d18626fcbe, type: 2}
+  - {fileID: 11400000, guid: 9c6ab23d54ff60643a4d64259486f69e, type: 2}
+  - {fileID: 11400000, guid: 5c5f05eb97ea6cc4584721e3cd12fad7, type: 2}
   _currentItem: 0
   _itemCost: {fileID: 1904588071}
   _infoText: {fileID: 116047735}
@@ -12049,12 +12049,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 44476471}
-  m_RootOrder: 0
+  m_Father: {fileID: 214767284}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -237.9447, y: 280.97723}
+  m_AnchoredPosition: {x: 1.0552979, y: 45.977234}
   m_SizeDelta: {x: 950.5255, y: 1208.7212}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1763668053
@@ -12240,7 +12240,6 @@ GameObject:
   - component: {fileID: 1816213997}
   - component: {fileID: 1816214000}
   - component: {fileID: 1816213999}
-  - component: {fileID: 1816213998}
   m_Layer: 5
   m_Name: IconBackground
   m_TagString: Untagged
@@ -12264,53 +12263,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.30822223, y: 0.40941668}
   m_AnchorMax: {x: 0.6868148, y: 0.591}
-  m_AnchoredPosition: {x: 9.248169, y: -50.80629}
+  m_AnchoredPosition: {x: 11, y: -50.80629}
   m_SizeDelta: {x: 301.54898, y: 276.57822}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1816213998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1816213996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1816213999}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1816213999
 MonoBehaviour:
   m_ObjectHideFlags: 0
