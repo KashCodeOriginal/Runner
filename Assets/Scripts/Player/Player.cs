@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +11,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Sounds _sounds;
 
     [SerializeField] private ParticleSystem _particleSystem;
+
+    [SerializeField] private TMP_Text _totalCoinsValue;
     
     private Animator _animator;
 
@@ -26,6 +29,8 @@ public class Player : MonoBehaviour
         _currentCoins = 0;
         PlayerCoinsChanged?.Invoke(_currentCoins);
         _animator = gameObject.GetComponent<Animator>();
+
+        _totalCoinsValue.text = _totalCoins.ToString();
     }
     
     public void ApplyDamage(int damage)

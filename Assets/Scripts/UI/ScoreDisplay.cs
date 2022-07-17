@@ -17,6 +17,8 @@ public class ScoreDisplay : MonoBehaviour
 
     [SerializeField] private GameValuesChanger _gameValuesChanger;
 
+    [SerializeField] private TMP_Text _bestRunValue;
+
     private float _passedTimeBetweenAddingScore;
 
     private int _currentScore;
@@ -31,6 +33,8 @@ public class ScoreDisplay : MonoBehaviour
         LoadScore();
         _highscore.text = "Highscore: " + _currentHighscore;
         _isScoreStopped = true;
+
+        _bestRunValue.text = _currentHighscore.ToString();
     }
 
     private void Update()
