@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -5,6 +6,8 @@ using UnityEngine.Events;
 public class PlayerInput : MonoBehaviour
 {
     public event UnityAction<bool> IsPlayerInactive;
+
+    [SerializeField] private float _swipeRange;
     
     [SerializeField] private float _xMin;
     [SerializeField] private float _xMax;
@@ -27,6 +30,9 @@ public class PlayerInput : MonoBehaviour
 
     private Animator _animator;
     private Animation _animation;
+
+    private float _posy;
+    private bool _canSwipe = true;
     private void Start()
     {
         _playerMover = gameObject.GetComponent<PlayerMover>();
@@ -49,10 +55,25 @@ public class PlayerInput : MonoBehaviour
         {
             float posx = (Input.mousePosition.x - _startPos.x);
             
+            _posy = (Input.mousePosition.y - _startPos.y);
+            
             targetPosx = Mathf.Clamp(transform.position.x + posx * _sensivity, _xMin, _xMax);
 
             _passedTimeWithoutTouching = 0;
-            
+
+            if (_canSwipe == true)
+            {
+                if (_posy > _swipeRange)
+                {
+                    Jump();
+                    _canSwipe = false;
+                }
+                else if (_posy < -_swipeRange)
+                {
+                    Slide();
+                    _canSwipe = false;
+                }
+            }
             IsPlayerInactive?.Invoke(false);
         }
         else
@@ -62,22 +83,24 @@ public class PlayerInput : MonoBehaviour
                 IsPlayerInactive?.Invoke(true);
                 _passedTimeWithoutTouching = 0;
             }
+            
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
         {
-            _animator.SetTrigger("Jump");
-            _animation.Play("ColliderUp1");
-
+            _canSwipe = true;
         }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            _animator.SetTrigger("Slide");
-            _animation.Play("ColliderDown");
-        }
-        
         _playerMover.TryMove(targetPosx);
-
         _player.gameObject.transform.position = new Vector3(_player.gameObject.transform.position.x, _player.gameObject.transform.position.y, -8.5f);
+    }
+    private void Jump()
+    {
+        _animator.SetTrigger("Jump");
+        _animation.Play("ColliderUp1");
+    }
+    private void Slide()
+    {
+        _animator.SetTrigger("Slide");
+        _animation.Play("ColliderDown");
     }
 }

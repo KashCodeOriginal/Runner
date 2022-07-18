@@ -25,6 +25,7 @@ public class GameStarted : MonoBehaviour
 
     [SerializeField] private Abilities _abilities;
     
+    [SerializeField] private GameObject _pause;
     public void StartGame()
     {
         PlayerStartAnimation();
@@ -51,6 +52,7 @@ public class GameStarted : MonoBehaviour
         {
             text.alpha = 1;
         }
+        _pause.SetActive(true);
     }
 
     private void CloseAllPanels()
