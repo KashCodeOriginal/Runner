@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -32,31 +31,42 @@ public class GameStarted : MonoBehaviour
         PlayerMovingStart();
         EnemyMovingStart();
         GameIsStarted?.Invoke();
-        foreach (var text in _playerInfoText)
-        {
-            text.alpha = 1;
-        }
+        DisplayHearts();
+        DisplayText();
+        CloseAllPanels();
+        _abilities.OnGameStarted();
+    }
 
+    public void DisplayHearts()
+    {
         for (int i = 0; i < _heartList.childCount; i++)
         {
             _heartList.GetChild(i).GetComponent<Image>().color = new Color(1, 1, 1, 1);
         }
-        
-        _cameraAnimation.Play("CameraMoveToPosition");
+    }
 
+    private void DisplayText()
+    {
+        foreach (var text in _playerInfoText)
+        {
+            text.alpha = 1;
+        }
+    }
+
+    private void CloseAllPanels()
+    {
         if (_settingsPanel.activeSelf == true || _shopPanel.activeSelf == true)
         {
             _settingsPanel.SetActive(false);
             _shopPanel.SetActive(false);
         }
-        _abilities.OnGameStarted();
     }
- 
+
     private void PlayerStartAnimation()
     {
         _playerTransform.rotation = new Quaternion(0, 0, 0,0);
         _playerAnimation.SetBool("GameStarted",true);
-        _playerTransform.position = new Vector3(0, 0.25f, -8.5f);
+        _cameraAnimation.Play("CameraMoveToPosition");
     }
 
     private void PlayerMovingStart()

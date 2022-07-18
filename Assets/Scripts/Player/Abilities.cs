@@ -9,6 +9,8 @@ public class Abilities : MonoBehaviour
     [SerializeField] private List<ShopItem> _shopItems = new List<ShopItem>();
 
     [SerializeField] private int _healthWithBonus;
+
+    [SerializeField] private GameStarted _gameStarted;
     
     public event UnityAction<int> PlayerAddHealth;
     public void OnGameStarted()
@@ -24,7 +26,8 @@ public class Abilities : MonoBehaviour
 
     public void AddHearts()
     {
-        
+        PlayerAddHealth?.Invoke(_healthWithBonus);
+        _gameStarted.DisplayHearts();
     }
     public void DoubleCoins()
     {

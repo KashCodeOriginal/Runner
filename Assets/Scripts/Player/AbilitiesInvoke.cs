@@ -11,6 +11,7 @@ public class AbilitiesInvoke : MonoBehaviour
     public void AddHeartsClick()
     {
         _abilities.AddHearts();
+        Destroy(gameObject);
     }
     public void DoubleCoinsClick()
     {
