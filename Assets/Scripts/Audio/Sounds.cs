@@ -6,6 +6,15 @@ public class Sounds : MonoBehaviour
     [SerializeField] private AudioSource _audioSource;
     
     [SerializeField] private List<AudioClip> _sounds;
+
+    public void MuteSounds()
+    {
+        _audioSource.mute = true;
+    }
+    public void UnmuteSounds()
+    {
+        _audioSource.mute = false;
+    }
     
     public void PlayUnSuccessfulBuySound()
     {
