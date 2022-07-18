@@ -6,7 +6,11 @@ public class Sounds : MonoBehaviour
     [SerializeField] private AudioSource _audioSource;
     
     [SerializeField] private List<AudioClip> _sounds;
-
+    
+    public void PlayUnSuccessfulBuySound()
+    {
+        SetSound(_sounds[4]);
+    }
     public void PlayMenuClickSound()
     {
         SetSound(_sounds[3]);
@@ -23,7 +27,6 @@ public class Sounds : MonoBehaviour
     {
         SetSound(_sounds[0]);
     }
-
     private void SetSound(AudioClip sound)
     {
         _audioSource.clip = sound;

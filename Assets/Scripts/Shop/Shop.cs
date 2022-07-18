@@ -1,12 +1,15 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
+    public event UnityAction<int> PlayerTryToByItem;
+
+    [SerializeField] private Player _player;
+
     [SerializeField] private GameObject _item;
     
     [SerializeField] private List<ShopItem> _shopItems = new List<ShopItem>();
@@ -16,6 +19,8 @@ public class Shop : MonoBehaviour
     [SerializeField] private TMP_Text _itemCost;
     
     [SerializeField] private TMP_Text _infoText;
+
+    [SerializeField] private TMP_Text _ammountItemOfPlayerHas;
 
     private void Start()
     {
@@ -40,5 +45,26 @@ public class Shop : MonoBehaviour
         _item.GetComponent<Image>().sprite = _shopItems[_currentItem]._icon;
         _itemCost.text = _shopItems[_currentItem]._price.ToString();
         _infoText.text = _shopItems[_currentItem]._description;
+        _ammountItemOfPlayerHas.text = _shopItems[_currentItem]._amountOfItemPlayerHas.ToString();
+    }
+
+    public void TryBuyItem()
+    {
+        PlayerTryToByItem?.Invoke(_shopItems[_currentItem]._price);
+    }
+
+    private void OnEnable()
+    {
+        _player.PlayerCanBuyItem += BuyItem;
+    }
+    private void OnDisable()
+    {
+        _player.PlayerCanBuyItem -= BuyItem;
+    }
+
+    private void BuyItem()
+    {
+        _shopItems[_currentItem]._amountOfItemPlayerHas++;
+        _ammountItemOfPlayerHas.text = _shopItems[_currentItem]._amountOfItemPlayerHas.ToString();
     }
 }

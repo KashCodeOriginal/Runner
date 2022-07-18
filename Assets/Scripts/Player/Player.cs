@@ -13,11 +13,15 @@ public class Player : MonoBehaviour
     [SerializeField] private ParticleSystem _particleSystem;
 
     [SerializeField] private TMP_Text _totalCoinsValue;
+
+    [SerializeField] private Shop _shop;
     
     private Animator _animator;
 
     public event UnityAction<int> PlayerHealthChanged;
     public event UnityAction<int> PlayerCoinsChanged;
+
+    public event UnityAction PlayerCanBuyItem;
     
     public event UnityAction Died;
     
@@ -73,5 +77,28 @@ public class Player : MonoBehaviour
     private void LoadCoins()
     {
         _totalCoins = PlayerPrefs.GetInt("coins");
+    }
+
+    private void OnEnable()
+    {
+        _shop.PlayerTryToByItem += TryBuyItem;
+    }
+    private void OnDisable()
+    {
+        _shop.PlayerTryToByItem -= TryBuyItem;
+    }
+
+    private void TryBuyItem(int itemCost)
+    {
+        if (_totalCoins >= itemCost)
+        {
+            PlayerCanBuyItem?.Invoke();
+            _totalCoins -= itemCost;
+            _totalCoinsValue.text = _totalCoins.ToString();
+        }
+        else
+        {
+            _sounds.PlayUnSuccessfulBuySound();
+        }
     }
 }

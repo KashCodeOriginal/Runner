@@ -7,4 +7,5 @@ public class ShopItem : ScriptableObject
     public int _price;
     public string _description;
     public Sprite _icon;
+    public int _amountOfItemPlayerHas;
 }

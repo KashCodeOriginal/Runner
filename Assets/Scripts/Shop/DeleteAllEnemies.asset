@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261d5733fb352814fa47e2ebf180d485, type: 3}
   m_Name: HeartForeverItem
   m_EditorClassIdentifier: 
-  _name: HeartForeverItem
-  _price: 800
-  _description: Add two hearts FOREVER
-  _icon: {fileID: 21300000, guid: 02f3ce5639f57d549b06790c0a69cf74, type: 3}
+  _name: DeleteAllEnemies
+  _price: 30
+  _description: Delete All Enemies From Screen for 10 seconds
+  _icon: {fileID: 21300000, guid: 413710b631bd5493ebbf1a29b2d82eb3, type: 3}
+  _amountOfItemPlayerHas: 0
