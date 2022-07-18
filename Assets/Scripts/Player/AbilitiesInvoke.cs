@@ -16,10 +16,12 @@ public class AbilitiesInvoke : MonoBehaviour
     public void DoubleCoinsClick()
     {
         _abilities.DoubleCoins();
+        Destroy(gameObject);
     }
     public void DoubleScoreClick()
     {
         _abilities.DoubleScore();
+        Destroy(gameObject);
     }
     public void InvulnerabilityClick()
     {

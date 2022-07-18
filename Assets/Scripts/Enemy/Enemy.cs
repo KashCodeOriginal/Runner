@@ -3,12 +3,6 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private int _damage;
-    [SerializeField] private Animator _playerAnimator;
-
-    private void Start()
-    {
-        _playerAnimator = GameObject.FindWithTag("MainPlayer").GetComponent<Animator>();
-    }
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -16,7 +10,6 @@ public class Enemy : MonoBehaviour
         {
             player.ApplyDamage(_damage);
             Die();
-            _playerAnimator.SetTrigger("Hit");
         }
     }
     private void Die()

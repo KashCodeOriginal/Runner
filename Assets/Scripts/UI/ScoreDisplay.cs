@@ -19,6 +19,8 @@ public class ScoreDisplay : MonoBehaviour
 
     [SerializeField] private TMP_Text _bestRunValue;
 
+    [SerializeField] private Abilities _abilities;
+
     private float _passedTimeBetweenAddingScore;
 
     private int _currentScore;
@@ -45,7 +47,6 @@ public class ScoreDisplay : MonoBehaviour
             AddScore();
             _passedTimeBetweenAddingScore = 0;
         }
-
         if (!_isScoreStopped)
         {
             _gameValuesChanger.TryDecreaseValue(ref _timeBetweenAddingScore, _minTimeBetweenAddingScore, _decreaseStep);
@@ -78,11 +79,13 @@ public class ScoreDisplay : MonoBehaviour
     {
         _gameOverDisplay.PlayerDied += ScoreStop;
         _gameStarted.GameIsStarted += ScoreResume;
+        _abilities.PlayerDoubleScore += DoubleScore;
     }
     private void OnDisable()
     {
         _gameOverDisplay.PlayerDied -= ScoreStop;
         _gameStarted.GameIsStarted -= ScoreResume;
+        _abilities.PlayerDoubleScore -= DoubleScore;
     }
 
     private void ScoreStop()
@@ -93,4 +96,10 @@ public class ScoreDisplay : MonoBehaviour
     {
         _isScoreStopped = false;
     }
+
+    private void DoubleScore()
+    {
+        _scorePerSeconds = 2;
+    }
+
 }

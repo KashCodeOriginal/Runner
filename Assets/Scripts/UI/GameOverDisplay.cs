@@ -21,6 +21,7 @@ public class GameOverDisplay : MonoBehaviour
     [SerializeField] private Transform _longObjList;
 
     [SerializeField] private Button _restartButton;
+    [SerializeField] private Button _exitButton;
     
     private void Start()
     {
@@ -44,12 +45,14 @@ public class GameOverDisplay : MonoBehaviour
     {
         _player.Died += OnPlayerDied;
         _restartButton.onClick.AddListener(RestartGame);
+        _exitButton.onClick.AddListener(ExitGame);
     }
 
     private void OnDisable()
     {
         _player.Died -= OnPlayerDied;
         _restartButton.onClick.RemoveListener(RestartGame);
+        _exitButton.onClick.RemoveListener(ExitGame);
     }
 
     private void OnPlayerDied()
@@ -71,5 +74,10 @@ public class GameOverDisplay : MonoBehaviour
     private void RestartGame()
     {
         SceneManager.LoadScene(0);
+    }
+
+    private void ExitGame()
+    {
+        Application.Quit();
     }
 }

@@ -122,7 +122,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -5941711826637544919, guid: 6db75dd0198199a4dba456851f08b894, type: 3}
+      - m_Target: {fileID: -5858407503528330616}
         m_TargetAssemblyTypeName: AbilitiesInvoke, Assembly-CSharp
         m_MethodName: DeleteAllEnemiesClick
         m_Mode: 1

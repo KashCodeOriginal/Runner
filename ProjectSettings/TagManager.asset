@@ -7,6 +7,8 @@ TagManager:
   - Floor
   - GameSettings
   - MainPlayer
+  - Coin
+  - Abilities
   layers:
   - Default
   - TransparentFX

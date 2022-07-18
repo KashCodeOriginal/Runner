@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -17,6 +19,16 @@ public class Player : MonoBehaviour
     [SerializeField] private Shop _shop;
 
     [SerializeField] private Abilities _abilities;
+    
+    [SerializeField] private Transform _longObjList;
+    [SerializeField] private Transform _enemiesList;
+
+    [SerializeField] private Spawner _spawner;
+    
+    [SerializeField] private Animator _playerAnimator;
+
+    private bool _isCoinsDoubled;
+    private bool _isPlayerInvulnerability;
     
     private Animator _animator;
     
@@ -38,26 +50,60 @@ public class Player : MonoBehaviour
 
         _totalCoinsValue.text = _totalCoins.ToString();
     }
+
+    public void DeleteAllActiveEnemies()
+    {
+        DeleteEnemy(_enemiesList);
+        DeleteEnemy(_longObjList);
+        _particleSystem.Play();
+        _spawner.enabled = false;
+        StartCoroutine(SpawnerOn());
+    }
+
+    private void DeleteEnemy(Transform list)
+    {
+        foreach (Transform obj in list)
+        {
+            if (obj.gameObject.activeSelf == true && obj.gameObject.GetComponent<Enemy>() == true)
+            {
+                obj.gameObject.SetActive(false);
+            }
+        }
+    }
     
     public void ApplyDamage(int damage)
     {
-        _health -= damage;
-        
-        PlayerHealthChanged?.Invoke(_health);
-        
-        if (_health <= 0)
+        if (_isPlayerInvulnerability == false)
         {
-            Die();
-        }
+            _health -= damage;
         
-        _sounds.PlayHitSound();
-        _particleSystem.Play();
+            PlayerHealthChanged?.Invoke(_health);
+        
+            if (_health <= 0)
+            {
+                Die();
+            }
+        
+            _sounds.PlayHitSound();
+        
+            DeleteAllActiveEnemies();
+            
+            _playerAnimator.SetTrigger("Hit");
+        }
     }
 
-    public void AddCoin(int ammount)
+    public void AddCoin(int amount)
     {
-        _currentCoins += ammount;
-        _totalCoins += ammount;
+        if (_isCoinsDoubled == false)
+        {
+            _currentCoins += amount;
+            _totalCoins += amount;
+        }
+        else
+        {
+            _currentCoins += amount * 2;
+            _totalCoins += amount * 2;
+        }
         
         PlayerCoinsChanged?.Invoke(_currentCoins);
 
@@ -85,11 +131,15 @@ public class Player : MonoBehaviour
     {
         _shop.PlayerTryToByItem += TryBuyItem;
         _abilities.PlayerAddHealth += AddHealth;
+        _abilities.PlayerDoubleCoins += DoubleScore;
+        _abilities.PlayerInvulnerability += PlayerInvulnerability;
     }
     private void OnDisable()
     {
         _shop.PlayerTryToByItem -= TryBuyItem;
         _abilities.PlayerAddHealth -= AddHealth;
+        _abilities.PlayerDoubleCoins -= DoubleScore;
+        _abilities.PlayerInvulnerability -= PlayerInvulnerability;
     }
 
     private void TryBuyItem(int itemCost)
@@ -99,6 +149,7 @@ public class Player : MonoBehaviour
             PlayerCanBuyItem?.Invoke();
             _totalCoins -= itemCost;
             _totalCoinsValue.text = _totalCoins.ToString();
+            SaveCoins();
         }
         else
         {
@@ -110,5 +161,20 @@ public class Player : MonoBehaviour
     {
         _health = health;
         PlayerHealthChanged?.Invoke(_health);
+    }
+    private void DoubleScore(bool isCoinsDoubled)
+    {
+        _isCoinsDoubled = isCoinsDoubled;
+    }
+
+    private void PlayerInvulnerability(bool isPlayerInvulnerability)
+    {
+        _isPlayerInvulnerability = isPlayerInvulnerability;
+    }
+
+    private IEnumerator SpawnerOn()
+    {
+        yield return new WaitForSeconds(5f);
+        _spawner.enabled = true;
     }
 }
