@@ -15,9 +15,11 @@ public class Player : MonoBehaviour
     [SerializeField] private TMP_Text _totalCoinsValue;
 
     [SerializeField] private Shop _shop;
+
+    [SerializeField] private Abilities _abilities;
     
     private Animator _animator;
-
+    
     public event UnityAction<int> PlayerHealthChanged;
     public event UnityAction<int> PlayerCoinsChanged;
 
@@ -82,10 +84,12 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         _shop.PlayerTryToByItem += TryBuyItem;
+        _abilities.PlayerAddHealth += AddHealth;
     }
     private void OnDisable()
     {
         _shop.PlayerTryToByItem -= TryBuyItem;
+        _abilities.PlayerAddHealth -= AddHealth;
     }
 
     private void TryBuyItem(int itemCost)
@@ -100,5 +104,11 @@ public class Player : MonoBehaviour
         {
             _sounds.PlayUnSuccessfulBuySound();
         }
+    }
+
+    private void AddHealth(int health)
+    {
+        _health = health;
+        PlayerHealthChanged?.Invoke(_health);
     }
 }

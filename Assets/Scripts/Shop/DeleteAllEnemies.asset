@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 261d5733fb352814fa47e2ebf180d485, type: 3}
-  m_Name: HeartForeverItem
+  m_Name: DeleteAllEnemies
   m_EditorClassIdentifier: 
   _name: DeleteAllEnemies
   _price: 30

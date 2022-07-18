@@ -23,6 +23,8 @@ public class GameStarted : MonoBehaviour
 
     [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private GameObject _shopPanel;
+
+    [SerializeField] private Abilities _abilities;
     
     public void StartGame()
     {
@@ -47,6 +49,7 @@ public class GameStarted : MonoBehaviour
             _settingsPanel.SetActive(false);
             _shopPanel.SetActive(false);
         }
+        _abilities.OnGameStarted();
     }
  
     private void PlayerStartAnimation()
