@@ -15,7 +15,14 @@ public class Sounds : MonoBehaviour
     {
         _audioSource.mute = false;
     }
-    
+    public void PlayWindSound()
+    {
+        SetSound(_sounds[6]);
+    }
+    public void PlayAbilitiesSound()
+    {
+        SetSound(_sounds[5]);
+    }
     public void PlayUnSuccessfulBuySound()
     {
         SetSound(_sounds[4]);

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261d5733fb352814fa47e2ebf180d485, type: 3}
   m_Name: HeartsItem
   m_EditorClassIdentifier: 
-  _name: HeartsItem
+  _name: Add 2 Hearts
   _price: 40
   _description: Add two hearts for ONE run
   _icon: {fileID: 21300000, guid: 52bc2267e49a0ae4b8b93ad9c7d4b9e6, type: 3}
-  _amountOfItemPlayerHas: 0
+  _amountOfItemPlayerHas: 9

@@ -17,5 +17,6 @@ public class GamePaused : MonoBehaviour
     public void ExitGame()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1;
     }
 }

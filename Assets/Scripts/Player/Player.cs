@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
     
     [SerializeField] private Animator _playerAnimator;
 
+    [SerializeField] private GameObject _sphere;
+
     private bool _isCoinsDoubled;
     private bool _isPlayerInvulnerability;
     
@@ -58,6 +60,7 @@ public class Player : MonoBehaviour
         _particleSystem.Play();
         _spawner.enabled = false;
         StartCoroutine(SpawnerOn());
+        _sounds.PlayWindSound();
     }
 
     private void DeleteEnemy(Transform list)
@@ -170,6 +173,14 @@ public class Player : MonoBehaviour
     private void PlayerInvulnerability(bool isPlayerInvulnerability)
     {
         _isPlayerInvulnerability = isPlayerInvulnerability;
+        _sphere.SetActive(true);
+        _sphere.GetComponent<Animation>().Play("PlayerShieldRotation");
+
+        if (isPlayerInvulnerability == false)
+        {
+            _sphere.SetActive(false);
+            _sphere.GetComponent<Animation>().Stop("PlayerShieldRotation");
+        }
     }
 
     private IEnumerator SpawnerOn()

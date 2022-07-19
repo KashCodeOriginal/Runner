@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261d5733fb352814fa47e2ebf180d485, type: 3}
   m_Name: DoubleCoinsItem
   m_EditorClassIdentifier: 
-  _name: DoubleCoinsItem
+  _name: Double Coins
   _price: 50
   _description: Double coins for ONE run
   _icon: {fileID: 21300000, guid: ef173c17f8222af48b9224172d49cce8, type: 3}
-  _amountOfItemPlayerHas: 0
+  _amountOfItemPlayerHas: 9

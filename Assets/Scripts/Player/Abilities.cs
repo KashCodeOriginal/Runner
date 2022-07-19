@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -19,6 +20,10 @@ public class Abilities : MonoBehaviour
     [SerializeField] private GameStarted _gameStarted;
 
     [SerializeField] private Player _player;
+
+    [SerializeField] private TMP_Text _abilityText;
+
+    [SerializeField] private Sounds _sounds;
     public void OnGameStarted()
     {
         for (int i = 0; i < _abilities.Count; i++)
@@ -33,28 +38,25 @@ public class Abilities : MonoBehaviour
 
     public void AddHearts()
     {
-        if (_shopItems[0]._amountOfItemPlayerHas > 0)
-        {
-            PlayerAddHealth?.Invoke(_healthWithBonus);
-            _gameStarted.DisplayHearts();
-            _shopItems[0]._amountOfItemPlayerHas--;
-        }
+        PlayerAddHealth?.Invoke(_healthWithBonus);
+        _gameStarted.DisplayHearts();
+        _shopItems[0]._amountOfItemPlayerHas--;
+        AddAbilityText(0);
+        _sounds.PlayAbilitiesSound();
     }
     public void DoubleCoins()
     {
-        if (_shopItems[1]._amountOfItemPlayerHas > 0)
-        {
-            PlayerDoubleCoins?.Invoke(true);
-            _shopItems[1]._amountOfItemPlayerHas--;
-        }
+        PlayerDoubleCoins?.Invoke(true);
+        _shopItems[1]._amountOfItemPlayerHas--;
+        AddAbilityText(1);
+        _sounds.PlayAbilitiesSound();
     }
     public void DoubleScore()
     {
-        if (_shopItems[2]._amountOfItemPlayerHas > 0)
-        {
-            PlayerDoubleScore?.Invoke();
-            _shopItems[2]._amountOfItemPlayerHas--;
-        }
+        PlayerDoubleScore?.Invoke();
+        _shopItems[2]._amountOfItemPlayerHas--;
+        AddAbilityText(2);
+        _sounds.PlayAbilitiesSound();
     }
     public void Invulnerability()
     {
@@ -63,6 +65,8 @@ public class Abilities : MonoBehaviour
             PlayerInvulnerability?.Invoke(true);
             StartCoroutine(InbulnerabilityTimer());
             _shopItems[3]._amountOfItemPlayerHas--;
+            AddAbilityText(3);
+            _sounds.PlayAbilitiesSound();
         }
     }
     public void DeleteAllEnemies()
@@ -71,6 +75,7 @@ public class Abilities : MonoBehaviour
         {
             _player.DeleteAllActiveEnemies();
             _shopItems[4]._amountOfItemPlayerHas--;
+            AddAbilityText(4);
         }
     }
 
@@ -83,5 +88,12 @@ public class Abilities : MonoBehaviour
     {
         yield return new WaitForSeconds(30f);
         PlayerInvulnerability?.Invoke(false);
+    }
+
+    private void AddAbilityText(int i)
+    {
+        _abilityText.gameObject.GetComponent<Animation>().Stop();
+        _abilityText.text = _shopItems[i]._name + " Is Activated";
+        _abilityText.gameObject.GetComponent<Animation>().Play("AbilityText");
     }
 }
