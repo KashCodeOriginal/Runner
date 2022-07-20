@@ -16,4 +16,4 @@ MonoBehaviour:
   _price: 60
   _description: Double score for ONE run
   _icon: {fileID: 21300000, guid: 921365c54ad46914c9765022e430e1ec, type: 3}
-  _amountOfItemPlayerHas: 9
+  _amountOfItemPlayerHas: 10

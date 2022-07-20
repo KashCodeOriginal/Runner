@@ -16,4 +16,4 @@ MonoBehaviour:
   _price: 40
   _description: Add two hearts for ONE run
   _icon: {fileID: 21300000, guid: 52bc2267e49a0ae4b8b93ad9c7d4b9e6, type: 3}
-  _amountOfItemPlayerHas: 9
+  _amountOfItemPlayerHas: 10
