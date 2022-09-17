@@ -22,10 +22,13 @@ public class Shop : MonoBehaviour
 
     [SerializeField] private TMP_Text _ammountItemOfPlayerHas;
 
+    [SerializeField] private RewardedAds _rewardedAds;
+
     private void Start()
     {
         _currentItem = 0;
         SwitchItem(_currentItem);
+        _rewardedAds.LoadAd();
     }
 
     public void SwitchItem(int value)

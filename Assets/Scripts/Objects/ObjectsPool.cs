@@ -10,7 +10,7 @@ public class ObjectsPool : MonoBehaviour
     
     [SerializeField] private int _amountOfObjects;
 
-    System.Random random = new System.Random();
+    System.Random random = new System.Random(); 
 
     protected List<GameObject> _pool = new List<GameObject>();
     

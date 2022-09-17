@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -49,7 +48,6 @@ public class Player : MonoBehaviour
         _currentCoins = 0;
         PlayerCoinsChanged?.Invoke(_currentCoins);
         _animator = gameObject.GetComponent<Animator>();
-
         _totalCoinsValue.text = _totalCoins.ToString();
     }
 
@@ -95,8 +93,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void AddCoin(int amount)
+    public void AddCoin(int amount, bool _isCoinsRewarded)
     {
+        if (_isCoinsRewarded == true)
+        {
+            _totalCoins += amount;
+            _totalCoinsValue.text = _totalCoins.ToString();
+            return;
+        }
         if (_isCoinsDoubled == false)
         {
             _currentCoins += amount;

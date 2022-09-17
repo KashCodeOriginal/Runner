@@ -7,7 +7,7 @@ public class Coin : MonoBehaviour
     {
         if(collider.TryGetComponent(out Player player))
         {
-            player.AddCoin(_coinCost);
+            player.AddCoin(_coinCost, false);
             Hide();
         }
     }

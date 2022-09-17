@@ -22,10 +22,13 @@ public class GameOverDisplay : MonoBehaviour
 
     [SerializeField] private Button _restartButton;
     [SerializeField] private Button _exitButton;
+
+    [SerializeField] private InterstitialAds _interstitialAds;
     
     private void Start()
     {
         _gameOverPanel.SetActive(false);
+        _interstitialAds.LoadAd();
     }
     private void ControlAllEnemies(bool enableObjectsMoving, Transform list)
     {
@@ -73,7 +76,8 @@ public class GameOverDisplay : MonoBehaviour
 
     private void RestartGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(sceneBuildIndex: 0);
+        _interstitialAds.ShowAd();
     }
 
     private void ExitGame()
